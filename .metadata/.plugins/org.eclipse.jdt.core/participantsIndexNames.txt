@@ -1,0 +1,5 @@
+INDEX VERSION 1.134
+C:\Users\diurno\Documents\FullTechJava\03_SpringBoot\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\133336494.index
+\projetospring\src\main\java
+C:\Users\diurno\Documents\FullTechJava\03_SpringBoot\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4115585035.index
+\projetospring\src\main\java
