@@ -21,7 +21,7 @@
 <body>
 	<div class="container borda">
 		<h2 class="text-primary text-center">Cadastro de Clientes</h2>
-		<form>
+		<form action="/clientes/novo" method="post">
 
 			<div class="mb-3">
 				<label class="form-label">CPF:</label> <input type="text" name="cpf"
@@ -42,8 +42,10 @@
 				<label class="form-label">Telefone:</label> <input type="text"
 					name="telefone" class="form-control" />
 			</div>
-			<button type="submit" class="btn btn-primary">Incluir</button>
-
+			
+			<button type="submit" class="btn btn-primary">Incluir</button> | 
+			<a href="/clientes/lista" class="btn btn-secondary">Voltar para a lista</a>
+			
 		</form>
 
 	</div>

@@ -47,6 +47,12 @@ public class Cliente {
 		this.telefone = telefone;
 	}
 	
+	@Override
+	public String toString() {
+		return String.format("[%s, %s, %s, %s]", 
+				this.getCpf(), this.getNome(), this.getEmail(), this.getTelefone());
+	}
+	
 	
 	
 	

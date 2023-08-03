@@ -14,7 +14,7 @@
 		<span>Escolha uma opção</span>
 		<ul>
 			<li>
-				<a href="/clientes/novo">Gestão de Clientes</a>
+				<a href="/clientes/lista">Gestão de Clientes</a>
 			</li>
 		</ul>
 	</div>
