@@ -13,9 +13,8 @@
 		<h2 class="text-primary text-center">Get the products you want!</h2>
 		<span>Escolha uma opção</span>
 		<ul>
-			<li>
-				<a href="/clientes/lista">Gestão de Clientes</a>
-			</li>
+			<li><a href="/clientes/lista">Gestão de Clientes</a></li>
+			<li><a href="/pedidos/novo">Efetuar Pedidos</a></li>
 		</ul>
 	</div>
 </body>

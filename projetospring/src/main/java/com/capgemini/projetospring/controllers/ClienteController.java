@@ -8,8 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.capgemini.projetospring.models.Cliente;
@@ -80,6 +80,30 @@ public class ClienteController {
 			return "erro";
 		}
 	}
+	
+	// excluindo dados do cliente
+	@GetMapping("/remover/{doc}")
+	public ModelAndView remover(@PathVariable("doc") String cpf) {
+		try {
+			Cliente cliente = clienteRepository.getReferenceById(cpf);
+			return new ModelAndView("clientes/removerCliente", "cliente", cliente);
+			
+		} catch (Exception e) {
+			return new ModelAndView("erro", "msg_erro", e.toString());
+		}
+		
+	}	
+	
+	@PostMapping("/remover")
+	public String remover(@RequestParam("cpf") String cpf, Model model) {
+		try {
+			clienteRepository.deleteById(cpf);
+			return "redirect:/clientes/lista";
+		} catch (Exception e) {
+			model.addAttribute("msg_erro", e.toString());
+			return "erro";
+		}
+	}	
 
 	
 }

@@ -41,7 +41,8 @@
 						<td>${cliente.telefone}</td>
 						<td>${cliente.telefone}</td>
 						<td>
-							<a href="/clientes/alterar/${cliente.cpf}">Alterar</a>
+							<a href="/clientes/alterar/${cliente.cpf}">Alterar</a> | 
+							<a href="/clientes/remover/${cliente.cpf}">Remover</a>
 						</td>
 					</tr>
 				</c:forEach>

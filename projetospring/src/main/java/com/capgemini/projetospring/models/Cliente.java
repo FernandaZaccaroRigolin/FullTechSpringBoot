@@ -1,8 +1,13 @@
 package com.capgemini.projetospring.models;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,6 +26,9 @@ public class Cliente {
 	
 	@Column(name = "TELEFONE")
 	private String telefone;
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "cliente")
+	private List<Pedido> pedidos;
 	
 	public String getCpf() {
 		return cpf;
@@ -45,6 +53,13 @@ public class Cliente {
 	}
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
+	}
+	
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
 	}
 	
 	@Override
