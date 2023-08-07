@@ -15,6 +15,7 @@
 		<ul>
 			<li><a href="/clientes/lista">Gestão de Clientes</a></li>
 			<li><a href="/pedidos/novo">Efetuar Pedidos</a></li>
+			<li><a href="/pedidos/todos">Lista de todos os Pedidos</a></li>
 		</ul>
 	</div>
 </body>

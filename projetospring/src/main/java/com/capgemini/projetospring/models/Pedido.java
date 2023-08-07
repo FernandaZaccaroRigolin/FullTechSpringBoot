@@ -21,7 +21,6 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 
-
 @Entity
 @Table(name = "tb_pedidos")
 public class Pedido {
@@ -63,7 +62,7 @@ public class Pedido {
 
 	//propriedade auxiliar para obter a data do corpo da requisição
 	public void setDataPedido(String data) throws ParseException {
-		DateFormat df = new SimpleDateFormat("yyyy-MMM-dd");
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		this.setData(df.parse(data));
 		 
 	}

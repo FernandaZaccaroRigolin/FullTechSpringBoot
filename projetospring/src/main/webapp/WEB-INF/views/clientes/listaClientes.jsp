@@ -39,10 +39,10 @@
 						<td>${cliente.nome}</td>
 						<td>${cliente.email}</td>
 						<td>${cliente.telefone}</td>
-						<td>${cliente.telefone}</td>
 						<td>
 							<a href="/clientes/alterar/${cliente.cpf}">Alterar</a> | 
-							<a href="/clientes/remover/${cliente.cpf}">Remover</a>
+							<a href="/clientes/remover/${cliente.cpf}">Remover</a> |
+							<a href="/pedidos/lista/${cliente.cpf}">Ver Pedidos</a>
 						</td>
 					</tr>
 				</c:forEach>
