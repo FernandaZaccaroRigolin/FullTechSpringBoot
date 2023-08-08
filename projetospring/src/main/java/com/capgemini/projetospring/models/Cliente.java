@@ -27,6 +27,7 @@ public class Cliente {
 	@Column(name = "TELEFONE")
 	private String telefone;
 	
+	//@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "cliente")
 	private List<Pedido> pedidos;
 	

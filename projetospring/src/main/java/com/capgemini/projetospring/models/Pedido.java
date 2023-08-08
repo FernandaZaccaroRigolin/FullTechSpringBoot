@@ -20,6 +20,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 @Table(name = "tb_pedidos")
@@ -37,6 +39,7 @@ public class Pedido {
 	@Column(name = "NUMEROPEDIDO")
 	private String numeroPedido;
 	
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "CPF")
 	private Cliente cliente;
