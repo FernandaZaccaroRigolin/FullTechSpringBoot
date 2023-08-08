@@ -1,5 +1,0 @@
-package com.capgemini.projetospring.controllers;
-
-public class HomeController {
-
-}

@@ -1,9 +1,5 @@
 package com.capgemini.projetospring.dto;
 
-import java.util.Date;
-
-import javax.persistence.Column;
-
 public class ClienteDTO {
 	private String cpf;
 	private String nome;
