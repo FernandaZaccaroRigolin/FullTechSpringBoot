@@ -25,9 +25,11 @@ public class Item {
 	@Column(name = "QUANTIDADE")
 	private Double quantidade;
 	
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "IDPEDIDO")
 	private Pedido pedido;
+	
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "IDPRODUTO")

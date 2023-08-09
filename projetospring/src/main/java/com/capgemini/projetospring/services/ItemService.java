@@ -1,10 +1,12 @@
 package com.capgemini.projetospring.services;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.capgemini.projetospring.dto.ItensPedidoDTO;
 import com.capgemini.projetospring.models.Item;
 import com.capgemini.projetospring.models.Pedido;
 import com.capgemini.projetospring.models.Produto;
@@ -16,12 +18,15 @@ import com.capgemini.projetospring.repository.ProdutoRepository;
 public class ItemService {
 	@Autowired
 	private ItemRepository itemRepository;
+	
 	@Autowired
 	private PedidoRepository pedidoRepository;
+	
 	@Autowired
 	private ProdutoRepository produtoRepository;
 	
-	public Item adicionarItem(Map<String, String> dados) {
+	
+	public String adicionarItem(Map<String, String> dados) {
 		/*
 		 * esperamos um objeto com as propriedades:
 		 * 
@@ -47,7 +52,11 @@ public class ItemService {
 		
 		itemRepository.save(item);
 		
-		return item;
+		return "Item incluído com sucesso";
+	}
+	
+	public List<ItensPedidoDTO> listarItens() {
+		return itemRepository.getItensPedidoDTO();
 	}
 }
 

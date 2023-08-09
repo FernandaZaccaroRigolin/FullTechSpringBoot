@@ -6,8 +6,6 @@ public class PedidoDTO {
 	private String pedido;
 	private String data;
 	
-	
-	
 	public String getCpf() {
 		return cpf;
 	}
