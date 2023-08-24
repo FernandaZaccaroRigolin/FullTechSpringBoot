@@ -37,11 +37,13 @@ public class ApiClienteController {
 		return clienteService.listarClientesDTO();
 	}	
 	
+	@CrossOrigin
 	@GetMapping("/{cpf}")
 	public ClienteDTO buscarCliente(@PathVariable String cpf) {
 		return clienteService.buscarCliente(cpf);
 	}
 	
+	@CrossOrigin
 	@PostMapping("/")
 	public Cliente incluirCliente(@RequestBody Cliente cliente) {
 //		try {
@@ -52,11 +54,13 @@ public class ApiClienteController {
 		return clienteService.incluir(cliente);
 	}
 	
+	@CrossOrigin
 	@PutMapping("/{cpf}")
 	public Cliente alterarCliente(@RequestBody Cliente cliente, @PathVariable String cpf) {
 		return clienteService.alterar(cliente, cpf);
 	}
 	
+	@CrossOrigin
 	@DeleteMapping("/{cpf}")
 	public ResponseEntity<String> deleteCliente(@PathVariable String cpf) {
 		return new ResponseEntity<String>(clienteService.remover(cpf), HttpStatus.ACCEPTED);

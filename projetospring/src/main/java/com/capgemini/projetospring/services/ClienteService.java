@@ -26,7 +26,7 @@ public class ClienteService {
 		
 		return clientes;
 	}
-	
+
 	public ClienteDTO buscarCliente(String cpf) {
 		Cliente cliente = clienteRepository.getReferenceById(cpf);
 		return new ClienteDTO(
