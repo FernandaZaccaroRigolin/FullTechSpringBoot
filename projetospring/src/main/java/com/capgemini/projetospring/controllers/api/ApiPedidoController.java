@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +24,7 @@ public class ApiPedidoController {
 	@Autowired
 	private PedidoService pedidoService;
 	
+	@CrossOrigin
 	@PostMapping("/")
 	public Pedido incluirPedido(@RequestBody Map<String, String> dados) {
 		try {
@@ -33,6 +35,7 @@ public class ApiPedidoController {
 	}
 	
 	// action para incluir um pedido usando um DTO
+	@CrossOrigin
 	@PostMapping("/incluir")
 	public Pedido incluirPedido(@RequestBody PedidoDTO pedido) {
 		try {
@@ -42,7 +45,7 @@ public class ApiPedidoController {
 		}
 	}
 	
-	
+	@CrossOrigin
 	@GetMapping(path = {"/", "/{cpf}"})
 	public List<ClientePedidosDTO> listarPedidos(@PathVariable(name = "cpf", required = false) String cpf) {
 		try {

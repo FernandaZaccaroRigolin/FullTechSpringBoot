@@ -1,10 +1,12 @@
 package com.capgemini.projetospring.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.capgemini.projetospring.dto.ProdutoDTO;
 import com.capgemini.projetospring.models.Produto;
 import com.capgemini.projetospring.repository.ProdutoRepository;
 
@@ -28,4 +30,12 @@ public class ProdutoService {
 	public List<Produto> listar() {
 		return produtoRepository.findAll();
 	}
+	
+	public List<ProdutoDTO> listarProdutosDTO() {
+		List<ProdutoDTO> produtos = new ArrayList<ProdutoDTO>();
+		produtoRepository.findAll().forEach(p -> 
+			produtos.add(new ProdutoDTO(p.getId(), p.getDescricao(), p.getUnidade(), p.getPreco())));
+		
+		return produtos;
+	}		
 }

@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,11 +23,13 @@ public class ApiItemController {
 	@Autowired
 	private ItemService itemService;
 	
+	@CrossOrigin
 	@PostMapping("/")
 	public ResponseEntity<String> incluirItem(@RequestBody Map<String, String> dados){
 		return new ResponseEntity<String>(itemService.adicionarItem(dados), HttpStatus.CREATED);
 	}
 	
+	@CrossOrigin
 	@GetMapping("/")
 	public List<ItensPedidoDTO> listarItens() {
 		return itemService.listarItens();
