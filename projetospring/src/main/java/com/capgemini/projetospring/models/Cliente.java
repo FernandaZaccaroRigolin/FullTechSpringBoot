@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tb_clientes")
 public class Cliente {
-	
+
 	@Id
 	@Column(name = "CPF")
 	private String cpf;
@@ -56,21 +56,18 @@ public class Cliente {
 		this.telefone = telefone;
 	}
 	
+	
 	public List<Pedido> getPedidos() {
 		return pedidos;
 	}
 	public void setPedidos(List<Pedido> pedidos) {
 		this.pedidos = pedidos;
 	}
-	
 	@Override
-	public String toString() {
+	public String toString() {	
 		return String.format("[%s, %s, %s, %s]", 
 				this.getCpf(), this.getNome(), this.getEmail(), this.getTelefone());
 	}
 	
 	
-	
-	
-
 }

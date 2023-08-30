@@ -18,7 +18,7 @@ import com.capgemini.projetospring.repository.ClienteRepository;
 @Controller
 @RequestMapping("/clientes")
 public class ClienteController {
-	
+
 	@Autowired
 	private ClienteRepository clienteRepository;
 	
@@ -26,19 +26,21 @@ public class ClienteController {
 	public ModelAndView incluir() {
 		try {
 			return new ModelAndView("clientes/novoCliente");
+			
 		} catch (Exception e) {
 			return new ModelAndView("erro", "msg_erro", e.toString());
 		}
-
 	}
 	
 	@PostMapping("/novo")
 	public String incluir(Cliente cliente, Model model) {
 		try {
 			clienteRepository.save(cliente);
-			
 			//System.out.println(cliente);
+			
 			return "redirect:/clientes/lista";
+			
+						
 		} catch (Exception e) {
 			model.addAttribute("msg_erro", e.toString());
 			return "erro";
@@ -50,6 +52,7 @@ public class ClienteController {
 		try {
 			List<Cliente> clientes = clienteRepository.findAll();
 			return new ModelAndView("clientes/listaClientes", "listagem_clientes", clientes);
+			
 		} catch (Exception e) {
 			return new ModelAndView("erro", "msg_erro", e.toString());
 		}
@@ -65,15 +68,12 @@ public class ClienteController {
 		} catch (Exception e) {
 			return new ModelAndView("erro", "msg_erro", e.toString());
 		}
-		
 	}
 	
 	@PostMapping("/alterar")
 	public String alterar(Cliente cliente, Model model) {
 		try {
 			clienteRepository.save(cliente);
-			
-			//System.out.println(cliente);
 			return "redirect:/clientes/lista";
 		} catch (Exception e) {
 			model.addAttribute("msg_erro", e.toString());
@@ -81,7 +81,6 @@ public class ClienteController {
 		}
 	}
 	
-	// excluindo dados do cliente
 	@GetMapping("/remover/{doc}")
 	public ModelAndView remover(@PathVariable("doc") String cpf) {
 		try {
@@ -91,18 +90,26 @@ public class ClienteController {
 		} catch (Exception e) {
 			return new ModelAndView("erro", "msg_erro", e.toString());
 		}
-		
-	}	
+	}
 	
 	@PostMapping("/remover")
 	public String remover(@RequestParam("cpf") String cpf, Model model) {
 		try {
-			clienteRepository.deleteById(cpf);
+			clienteRepository.deleteById(cpf);	
 			return "redirect:/clientes/lista";
 		} catch (Exception e) {
 			model.addAttribute("msg_erro", e.toString());
 			return "erro";
 		}
-	}	
-	
+	}
 }
+
+
+
+
+
+
+
+
+
+

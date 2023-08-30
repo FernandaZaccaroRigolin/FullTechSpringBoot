@@ -3,8 +3,6 @@ package com.capgemini.projetospring.controllers.api;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +20,7 @@ import com.capgemini.projetospring.services.ClienteService;
 @RestController
 @RequestMapping("/api/clientes")
 public class ApiClienteController {
-	
+
 	@Autowired
 	private ClienteService clienteService;
 	
@@ -30,41 +28,43 @@ public class ApiClienteController {
 	public List<Cliente> listarTodos() {
 		return clienteService.listarClientes();
 	}
-
+	
 	@CrossOrigin
 	@GetMapping("/")
 	public List<ClienteDTO> listarTodosDTO() {
 		return clienteService.listarClientesDTO();
-	}	
+	}
 	
 	@CrossOrigin
 	@GetMapping("/{cpf}")
 	public ClienteDTO buscarCliente(@PathVariable String cpf) {
-		return clienteService.buscarCliente(cpf);
+		return clienteService.buscarCliente(cpf);		
 	}
 	
 	@CrossOrigin
 	@PostMapping("/")
 	public Cliente incluirCliente(@RequestBody Cliente cliente) {
-//		try {
-//			return clienteService.incluir(cliente);
-//		} catch (Exception e) {
-//			return null;
-//		}
+		
 		return clienteService.incluir(cliente);
+		
 	}
 	
 	@CrossOrigin
 	@PutMapping("/{cpf}")
-	public Cliente alterarCliente(@RequestBody Cliente cliente, @PathVariable String cpf) {
-		return clienteService.alterar(cliente, cpf);
+	public Cliente alterarCliente(@RequestBody Cliente cliente,@PathVariable String cpf) {
+		return clienteService.alterar(cliente, cpf);		
 	}
 	
 	@CrossOrigin
 	@DeleteMapping("/{cpf}")
-	public ResponseEntity<String> deleteCliente(@PathVariable String cpf) {
-		return new ResponseEntity<String>(clienteService.remover(cpf), HttpStatus.ACCEPTED);
+	public String deleteCliente(@PathVariable String cpf) {
+		return clienteService.remover(cpf);
 		
 	}
-	
 }
+
+
+
+
+
+

@@ -28,22 +28,23 @@ public class ApiProdutoController {
 	
 	@CrossOrigin
 	@GetMapping("/")
-	public List<ProdutoDTO> listarProdutosDTO() {
+	public List<ProdutoDTO> listarProdutosDTO(){
 		return produtoService.listarProdutosDTO();
 	}
-
+	
 	@GetMapping("/lista")
 	public List<Produto> listarProdutos() {
 		return produtoService.listar();
-	}	
+	}
 	
 	@CrossOrigin
-	@PostMapping("/")
+	@PostMapping("/")	
 	public ResponseEntity<Object> incluirProduto(@RequestBody Produto produto) {
 		try {
-			return  new ResponseEntity<Object>(produtoService.incluir(produto), HttpStatus.CREATED);	
+			return new ResponseEntity<Object>(produtoService.incluir(produto), HttpStatus.CREATED);
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.FORBIDDEN).body(e.toString());
 		}
-	}	
+		
+	}
 }

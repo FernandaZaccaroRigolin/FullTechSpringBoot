@@ -1,18 +1,19 @@
 package com.capgemini.projetospring.dto;
 
 public class ClienteDTO {
+	
 	private String cpf;
 	private String nome;
 	private String telefone;
 	private String email;
 	
-    //Construtor completo
+	// construtor completo
 	public ClienteDTO(String cpf, String nome, String telefone, String email) {
 		this.setCpf(cpf);
 		this.setNome(nome);
 		this.setTelefone(telefone);
 		this.setEmail(email);
-	}	
+	}
 	
 	public String getCpf() {
 		return cpf;
