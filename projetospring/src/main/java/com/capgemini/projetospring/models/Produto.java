@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tb_produtos")
 public class Produto {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
@@ -28,7 +28,7 @@ public class Produto {
 	private String unidade;
 	
 	@Column(name = "PRECO")
-	private double preco;
+	private Double preco;
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "produto")
 	private List<Item> items;
@@ -57,11 +57,11 @@ public class Produto {
 		this.unidade = unidade;
 	}
 
-	public double getPreco() {
+	public Double getPreco() {
 		return preco;
 	}
 
-	public void setPreco(double preco) {
+	public void setPreco(Double preco) {
 		this.preco = preco;
 	}
 
@@ -72,5 +72,6 @@ public class Produto {
 	public void setItems(List<Item> items) {
 		this.items = items;
 	}
+	
 	
 }

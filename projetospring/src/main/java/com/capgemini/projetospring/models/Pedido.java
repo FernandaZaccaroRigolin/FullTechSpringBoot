@@ -22,11 +22,10 @@ import javax.persistence.TemporalType;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
 @Entity
 @Table(name = "tb_pedidos")
 public class Pedido {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
@@ -63,13 +62,13 @@ public class Pedido {
 		this.data = data;
 	}
 
-	//propriedade auxiliar para obter a data do corpo da requisição
+	// propriedade auxiliar para obter a data do corpo da requisição
 	public void setDataPedido(String data) throws ParseException {
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 		this.setData(df.parse(data));
-		 
 	}
-
+	
+	
 	public String getNumeroPedido() {
 		return numeroPedido;
 	}
@@ -93,5 +92,9 @@ public class Pedido {
 	public void setItems(List<Item> items) {
 		this.items = items;
 	}
+	
+	
+	
+	
 	
 }

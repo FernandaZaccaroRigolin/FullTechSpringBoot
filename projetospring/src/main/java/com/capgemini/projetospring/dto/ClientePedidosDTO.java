@@ -3,14 +3,14 @@ package com.capgemini.projetospring.dto;
 import java.util.Date;
 
 public class ClientePedidosDTO {
-	 
+
 	private int idPedido;
 	private String cpf;
 	private String nome;
 	private String numeroPedido;
 	private Date data;
 	
-	public ClientePedidosDTO() { };
+	public ClientePedidosDTO() { }
 	
 	public ClientePedidosDTO(int idPedido, String cpf, String nome, String numped, Date data) {
 		this.setIdPedido(idPedido);
@@ -22,7 +22,6 @@ public class ClientePedidosDTO {
 	
 	public int getIdPedido() {
 		return idPedido;
-		
 	}
 	public void setIdPedido(int idPedido) {
 		this.idPedido = idPedido;
@@ -51,5 +50,6 @@ public class ClientePedidosDTO {
 	public void setData(Date data) {
 		this.data = data;
 	}
-
+	
+	
 }

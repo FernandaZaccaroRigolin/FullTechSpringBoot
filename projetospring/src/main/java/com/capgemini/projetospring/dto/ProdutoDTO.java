@@ -1,6 +1,7 @@
 package com.capgemini.projetospring.dto;
 
 public class ProdutoDTO {
+
 	private int id;
 	private String descricao;
 	private String unidade;
@@ -8,13 +9,12 @@ public class ProdutoDTO {
 	
 	public ProdutoDTO() { }
 	
-	public ProdutoDTO (int id, String descricao, String unidade, Double preco) {
+	public ProdutoDTO(int id, String descricao, String unidade, Double preco) {
 		this.setId(id);
 		this.setDescricao(descricao);
 		this.setUnidade(unidade);
 		this.setPreco(preco);
 	}
-	
 	
 	public int getId() {
 		return id;

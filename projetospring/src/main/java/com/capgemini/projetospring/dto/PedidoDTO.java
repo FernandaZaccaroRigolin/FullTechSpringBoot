@@ -1,10 +1,12 @@
 package com.capgemini.projetospring.dto;
 
 public class PedidoDTO {
-	
+
 	private String cpf;
 	private String pedido;
 	private String data;
+	
+	
 	
 	public String getCpf() {
 		return cpf;
@@ -26,5 +28,4 @@ public class PedidoDTO {
 	}
 	
 	
-
 }

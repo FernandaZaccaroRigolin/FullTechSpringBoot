@@ -21,11 +21,12 @@ import com.capgemini.projetospring.repository.PedidoRepository;
 @Controller
 @RequestMapping("/pedidos")
 public class PedidoController {
+
 	@Autowired
 	private ClienteRepository clienteRepository;
 	
 	@Autowired
-	private PedidoRepository pedidoRepository;	
+	private PedidoRepository pedidoRepository;
 	
 	@GetMapping("/novo")
 	public ModelAndView incluir() {
@@ -43,12 +44,15 @@ public class PedidoController {
 			Cliente cliente = clienteRepository.getReferenceById(cpf);
 			pedido.setCliente(cliente);
 			pedidoRepository.save(pedido);
+			
 			return "redirect:/";
+			
+			
 		} catch (Exception e) {
 			model.addAttribute("msg_erro", e.toString());
 			return "erro";
 		}
-	}	
+	}
 	
 	@GetMapping("/todos")
 	public ModelAndView listarTodos() {
@@ -63,30 +67,22 @@ public class PedidoController {
 	@GetMapping(path = {"/lista", "/lista/{cpf}"})
 	public ModelAndView listarPedidos(@PathVariable(name = "cpf", required = false) String cpf) {
 		try {
-			
 			List<ClientePedidosDTO> pedidos;
-			if (cpf != null) {
+			if(cpf != null) {
 				pedidos = pedidoRepository.getClientePedidosDTOByCpf(cpf);
 			} else {
 				pedidos = pedidoRepository.getClientePedidosDTO();
 			}
-
-			return new ModelAndView("pedidos/listaPedidos", "lista_pedidos", pedidos);
 			
+			return new ModelAndView("pedidos/listaPedidos", "lista_pedidos", pedidos);
 		} catch (Exception e) {
 			return new ModelAndView("erro", "msg_erro", e.toString());
 		}
-		
 	}
-	
-	@GetMapping("/pedidos")
-	public ModelAndView listar() {
-		try {
-			List<Pedido> pedidos = pedidoRepository.findAll();
-			return new ModelAndView("pedidos/listagemPedidos", "listagem_pedidos", pedidos);
-		} catch (Exception e) {
-			return new ModelAndView("erro", "msg_erro", e.toString());
-		}
-	}	
-
 }
+
+
+
+
+
+

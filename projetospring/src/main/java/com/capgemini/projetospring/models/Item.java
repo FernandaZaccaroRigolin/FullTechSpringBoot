@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tb_itens")
 public class Item {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
@@ -25,11 +25,9 @@ public class Item {
 	@Column(name = "QUANTIDADE")
 	private Double quantidade;
 	
-	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "IDPEDIDO")
 	private Pedido pedido;
-	
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "IDPRODUTO")
@@ -74,5 +72,6 @@ public class Item {
 	public void setProduto(Produto produto) {
 		this.produto = produto;
 	}
+	
 	
 }
