@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 content_assist_proposals_background=255,255,255
 content_assist_proposals_foreground=0,0,0
 eclipse.preferences.version=1
@@ -6,5 +7,13 @@ org.eclipse.jdt.internal.ui.navigator.librariesnode=true
 org.eclipse.jdt.ui.formatterprofiles.version=23
 spelling_locale_initialized=true
 typefilter_migrated_2=true
+=======
+content_assist_number_of_computers=12
+content_assist_proposals_background=255,255,255
+content_assist_proposals_foreground=0,0,0
+eclipse.preferences.version=1
+org.eclipse.jdt.ui.formatterprofiles.version=21
+spelling_locale_initialized=true
+>>>>>>> 0741fdd8ac7f6eaeba8daf2efb43462e0d4ba51e
 useAnnotationsPrefPage=true
 useQuickDiffPrefPage=true

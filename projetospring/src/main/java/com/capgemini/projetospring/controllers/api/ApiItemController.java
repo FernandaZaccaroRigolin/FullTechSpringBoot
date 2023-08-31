@@ -7,7 +7,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,7 +25,6 @@ public class ApiItemController {
 	@Autowired
 	private ItemService itemService;
 	
-	@CrossOrigin
 	@PostMapping("/")
 	public ResponseEntity<ItemDTO> incluirItemDTO(@RequestBody Map<String, String> dados){
 		return new ResponseEntity<ItemDTO>(itemService.adicionarItemDTO(dados), HttpStatus.CREATED);
@@ -37,6 +35,7 @@ public class ApiItemController {
 		return new ResponseEntity<String>(itemService.adicionarItem(dados), HttpStatus.CREATED);
 	}
 	
+<<<<<<< HEAD
 	@CrossOrigin
 	@GetMapping(path = {"/", "/{id}"})
 	public ResponseEntity<List<ItensPedidoDTO>> listarItens(
@@ -54,6 +53,12 @@ public class ApiItemController {
 				new ArrayList<ItensPedidoDTO>(), HttpStatus.NOT_FOUND);
 		}
 		
+=======
+	
+	@GetMapping("/")
+	public List<ItensPedidoDTO> listarItens(){
+		return itemService.listarItens();
+>>>>>>> 0741fdd8ac7f6eaeba8daf2efb43462e0d4ba51e
 	}
 }
 
