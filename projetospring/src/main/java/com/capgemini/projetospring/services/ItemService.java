@@ -106,6 +106,12 @@ public class ItemService {
 	public List<ItensPedidoDTO> listarItens() {
 		return itemRepository.getItensPedidoDTO();
 	}
+
+	public List<ItensPedidoDTO> listarItens(int idPedido) {
+		return itemRepository.getItensPedidoDTObyIdPedido(idPedido);
+	}
+	
+	
 }
 
 

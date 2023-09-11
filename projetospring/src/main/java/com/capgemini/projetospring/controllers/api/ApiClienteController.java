@@ -3,7 +3,6 @@ package com.capgemini.projetospring.controllers.api;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,19 +28,19 @@ public class ApiClienteController {
 		return clienteService.listarClientes();
 	}
 	
-	@CrossOrigin
+	//@CrossOrigin
 	@GetMapping("/")
 	public List<ClienteDTO> listarTodosDTO() {
 		return clienteService.listarClientesDTO();
 	}
 	
-	@CrossOrigin
+	//@CrossOrigin
 	@GetMapping("/{cpf}")
 	public ClienteDTO buscarCliente(@PathVariable String cpf) {
 		return clienteService.buscarCliente(cpf);		
 	}
 	
-	@CrossOrigin
+	//@CrossOrigin
 	@PostMapping("/")
 	public Cliente incluirCliente(@RequestBody Cliente cliente) {
 		
@@ -49,13 +48,13 @@ public class ApiClienteController {
 		
 	}
 	
-	@CrossOrigin
+	//@CrossOrigin
 	@PutMapping("/{cpf}")
 	public Cliente alterarCliente(@RequestBody Cliente cliente,@PathVariable String cpf) {
 		return clienteService.alterar(cliente, cpf);		
 	}
 	
-	@CrossOrigin
+	//@CrossOrigin
 	@DeleteMapping("/{cpf}")
 	public String deleteCliente(@PathVariable String cpf) {
 		return clienteService.remover(cpf);
