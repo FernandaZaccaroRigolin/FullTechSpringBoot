@@ -1,0 +1,34 @@
+package com.capgemini.projetospring.controllers;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.Connection;
+
+@Controller
+public class HomeController {
+
+	@GetMapping("/")
+	public String iniciar() {
+		
+        Jedis jedis = new Jedis("redis://default:5taVgpR2Zf8hZOYAgzd2YJYXSPTSqpBh@redis-12813.c282.east-us-mz.azure.cloud.redislabs.com:12813");
+        Connection connection = jedis.getConnection();
+        System.out.println(jedis.get("name"));
+        
+        jedis.close();
+        connection.close();
+		
+		
+		return "index";
+	}
+	
+	@GetMapping("/conteudo")
+	public String mostrar(Model model) {
+		
+		double numero = Math.random();
+		
+		model.addAttribute("mensagem", "Número gerado: " + numero);
+		return "conteudo";
+	}
+}
