@@ -3,3 +3,4 @@ metadata/
 
 # ignore all logs
 *.log
+/.metadata/
